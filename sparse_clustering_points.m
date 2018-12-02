@@ -29,20 +29,15 @@ sigma = 0.5;
  end
 
  [idx, centroids] = kmeans(Y, k);
- % Assigning the points to appropriate cluster
- clusteredPoints = [E(:, 1)'; E(:, 2)'; idx'];
  
  colorArray = ["go"; "ro"; "yo"; "mo"; "co"; "bo"; "ko"];
  for i=1:k
-     colorArray(i)
     if (i == k)
-        plot( clusteredPoints(1,find(idx == i)), clusteredPoints(2,find(idx == i)),colorArray(i))
+        plot( E(find(idx == i),1), E(find(idx == i),2), colorArray(i))
     else
-        plot( clusteredPoints(1,find(idx == i)), clusteredPoints(2,find(idx == i)),colorArray(i)); hold on;
+        plot( E(find(idx == i),1), E(find(idx == i),2), colorArray(i)); hold on;
     end
- end
- 
- 
+ end 
  
  
  
